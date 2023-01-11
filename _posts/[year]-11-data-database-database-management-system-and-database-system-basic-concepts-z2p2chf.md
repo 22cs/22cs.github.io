@@ -1,9 +1,11 @@
 ---
 title: 1.1 数据、数据库、数据库管理系统、数据库系统的基本概念
-updated: '2023-01-11 11:00:42'
+updated: '2023-01-11 11:00:58'
 excerpt: >-
   数据数据是数据库中存储的基本对象。描述事物的符号记录称为数据。数据库严格地讲数据库是长期储存在计算机内有组织的可共享的大量数据的集合。数据库中的数据按一定的数据模型组织描述和储存具有较小的冗余度(redundancy)较高的数据独立性(dataindependency)和易扩展性(scalability)并可为各种用户共享。特点永久存储有组织可共享数据库管理系统数据库管理系统是位于用户与操作系统之间的一层数据管理软件。功能数据定义功能数据组织存储和管理数据操纵功能数据库的事务管理和运行功能数据库的建立和维
-tags: []
+tags:
+  - 数据库
+  - 学习
 categories: []
 permalink: >-
   /post/11-data-database-database-management-system-and-database-system-basic-concepts-z2p2chf.html
