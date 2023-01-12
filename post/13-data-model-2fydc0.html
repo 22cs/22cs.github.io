@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="AnDai"><title>1.3 数据模型 · AnDai's Blog</title><meta name="description" content="数据模型 (data model) 也是一种模型, 它是对现实世界数据特征的抽象。
+ 两类数据模型
+ 概念模型
+[数据库系统概论（第5版） 王珊 萨师煊 z-lib.org.pdf - p28 - 概念模型用于信息世界的建模, 是现实世界到信息世界的第一层抽象, 是数据库设计人员进行数据库设计的有力"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js"></script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">AnDai's Blog</a></h3><div class="description"><p>加油考研</p></div></div><ul class="social-links"></ul></div></div><div class="footer"><div class="p"> <span> 全站CC-BY-SA-3.0 </span><i class="fa fa-star"></i><span> AnDai</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" rel="external nofollow noreferrer" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>1.3 数据模型</a></h3></div><div class="post-content"><p><p>数据模型 (data model) 也是一种模型, 它是对现实世界数据特征的抽象。</p>
+<h1 id="两类数据模型"><a class="markdownIt-Anchor" href="#两类数据模型"></a> 两类数据模型</h1>
+<h2 id="概念模型"><a class="markdownIt-Anchor" href="#概念模型"></a> 概念模型</h2>
+<p>[数据库系统概论（第5版） 王珊 萨师煊 <a href="http://z-lib.org.pdf" class="test test-url" target="_blank" rel="noopener noreferrer">z-lib.org.pdf</a> - p28 - 概念模型用于信息世界的建模, 是现实世界到信息世界的第一层抽象, 是数据库设计人员进行数据库设计的有力工具, 也是数据库设计人员和用户之间进行交流的语言, 因此 概念模型一方面应该具有较强的语义表达能力, 能够方便、直接地表达应用中的各种语义 知识, 另一方面它还应该简单、清唽、易于用户理解。](assets/数据库系统概论（第5版） 王珊 萨师煊 <a href="http://z-lib.org-20230111094334-oxz3ndj.pdf?p=28" class="test test-url" target="_blank" rel="noopener noreferrer">z-lib.org-20230111094334-oxz3ndj.pdf?p=28</a>)</p>
+<h3 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h3>
+<h4 id="实体entity"><a class="markdownIt-Anchor" href="#实体entity"></a> 实体(Entity)</h4>
+<p>客观存在并且可相互区分的事物</p>
+<h4 id="属性attribute"><a class="markdownIt-Anchor" href="#属性attribute"></a> 属性(Attribute)</h4>
+<p>实体具有的某一特性</p>
+<h4 id="码key"><a class="markdownIt-Anchor" href="#码key"></a> 码(Key)</h4>
+<p>唯一标识实体的属性集</p>
+<h4 id="实体型"><a class="markdownIt-Anchor" href="#实体型"></a> 实体型</h4>
+<p>具有相同属性的实体必然具有共同的特征和性质。</p>
+<p>用实体名及其属性名集合来抽象和刻画同类实体, 称为实体型</p>
+<h4 id="实体集"><a class="markdownIt-Anchor" href="#实体集"></a> 实体集</h4>
+<p>同一类型实体的集合称为实体集</p>
+<h4 id="联系relationship"><a class="markdownIt-Anchor" href="#联系relationship"></a> 联系(Relationship)</h4>
+<p>有一对一、一对多、多对多等</p>
+<blockquote>
+<p>实体之间的联系通常指不同实体集之间的联系</p>
+</blockquote>
+<h3 id="表示方法"><a class="markdownIt-Anchor" href="#表示方法"></a> 表示方法</h3>
+<p>实体-联系（Entity-Relationship approach, ER）方法</p>
+<h2 id="逻辑模型和物理模型"><a class="markdownIt-Anchor" href="#逻辑模型和物理模型"></a> 逻辑模型和物理模型</h2>
+<h3 id="逻辑模型"><a class="markdownIt-Anchor" href="#逻辑模型"></a> 逻辑模型</h3>
+<p>[数据库系统概论（第5版） 王珊 萨师煊 <a href="http://z-lib.org.pdf" class="test test-url" target="_blank" rel="noopener noreferrer">z-lib.org.pdf</a> - p27 - 第二类中的逻辑模型主要包括层次模型 (hierarchical model)、网状模型 (network model)、 关系模型 (relational model)、面向对象数据模型 (object oriented data model) 和对象关系数据 模型 (object relational data model)、半结构化数据模型 (semistructured data model) 等。它是按计算机系统的观点对数据建模, 主要用于数据库管理系统的实现。](assets/数据库系统概论（第5版） 王珊 萨师煊 <a href="http://z-lib.org-20230111094334-oxz3ndj.pdf?p=27" class="test test-url" target="_blank" rel="noopener noreferrer">z-lib.org-20230111094334-oxz3ndj.pdf?p=27</a>)</p>
+<h4 id="常用逻辑数据模型"><a class="markdownIt-Anchor" href="#常用逻辑数据模型"></a> 常用逻辑数据模型</h4>
+<h5 id="层次模型"><a class="markdownIt-Anchor" href="#层次模型"></a> 层次模型</h5>
+<p>‍</p>
+<h5 id="网状模型"><a class="markdownIt-Anchor" href="#网状模型"></a> 网状模型</h5>
+<p>‍</p>
+<h5 id="关系模型"><a class="markdownIt-Anchor" href="#关系模型"></a> 关系模型</h5>
+<p>‍</p>
+<h5 id="面向对象数据模型"><a class="markdownIt-Anchor" href="#面向对象数据模型"></a> 面向对象数据模型</h5>
+<p>‍</p>
+<h3 id="物理模型"><a class="markdownIt-Anchor" href="#物理模型"></a> 物理模型</h3>
+<p>[数据库系统概论（第5版） 王珊 萨师煊 <a href="http://z-lib.org.pdf" class="test test-url" target="_blank" rel="noopener noreferrer">z-lib.org.pdf</a> - p27 - 第二类中的物理模型是对数据最底层的抽象, 它描述数据在系统内部的表示方式和存 取方法, 或在磁盘或磁带上的存储方式和存取方法, 是面向计算机系统的。物理模型的具体实现是数据库管理系统的任务, 数据库设计人员要了解和选择物理模型, 最终用户则不 必考虑物理级的细节。](assets/数据库系统概论（第5版） 王珊 萨师煊 <a href="http://z-lib.org-20230111094334-oxz3ndj.pdf?p=27" class="test test-url" target="_blank" rel="noopener noreferrer">z-lib.org-20230111094334-oxz3ndj.pdf?p=27</a>)</p>
+<p>‍</p>
+</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-01-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/数据库/" title="数据库">数据库 </a><i class="fa fa-tag"></i><a class="tag" href="/tags/学习/" title="学习">学习 </a><span class="leancloud_visitors"></span><span>About 744 words, 2 min 28 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/post/12-the-development-history-of-data-management-technology-2hmmrm.html" title="1.2 数据管理技术的发展史">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
