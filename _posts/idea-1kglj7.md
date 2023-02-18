@@ -1,6 +1,6 @@
 ---
 title: Idea
-updated: '2023-01-30 21:00:19'
+updated: '2023-02-18 11:52:41'
 excerpt: >-
   rust学会rust用rust写一个音乐播放器管理器用rust写一个媒体播放器管理器typescript学会typescritexcalidraw研究一下excalidraw用他的api写一个更好的ui插件对siyuan进行适配‍
 tags: []
@@ -21,6 +21,6 @@ comments: true
 
     * [ ] 研究一下excalidraw
     * [ ] 用他的API写一个更好的UI插件
-    * [ ] 对siyuan进行适配
+    * [X] 对siyuan进行适配
 
 　　‍
