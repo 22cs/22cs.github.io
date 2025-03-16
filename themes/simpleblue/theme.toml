@@ -3,8 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/yourusername/hugo-simpleblue/LICENSE"
 description = "A simple blue and white theme with KaTeX support"
 homepage = "https://github.com/yourusername/hugo-simpleblue"
-tags = ["blog", "responsive", "light", "mathematics", "katex"]
-features = ["responsive", "katex"]
+tags = ["blog", "responsive", "light", "mathematics", "katex", "clean"]
+features = ["responsive", "katex", "blog", "clean"]
 min_version = "0.60.0"
 
 [author]

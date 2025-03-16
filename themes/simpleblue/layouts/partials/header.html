@@ -1,13 +1,5 @@
-<header>
-    <div class="site-title">
-        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-    </div>
-    <nav>
-        <ul class="nav-links">
-            {{ $currentPage := . }}
-            {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a></li>
-            {{ end }}
-        </ul>
-    </nav>
+<header id="header">
+    <a class="no-underline" id="header-title" href="{{ .Site.Home.RelPermalink }}">
+        <h1>{{ .Site.Title }}</h1>
+    </a>
 </header>
