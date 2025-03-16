@@ -8,7 +8,11 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
 
 <!-- KaTeX -->
-{{ partial "katex.html" . }}
+{{ with site.Params.katex }}
+{{ if eq . true }}
+{{ partial "katex.html" $ }}
+{{ end }}
+{{ end }}
 
 <!-- CSS -->
 {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}

@@ -3,7 +3,7 @@
     --primary-color: #1a88ff;
     --text-color: #333333;
     --background-color: #ffffff;
-    --border-color: #e1e1e1;
+    --border-color: #e6e6e6;
     --link-color: #1a88ff;
     --header-color: #1a88ff;
     --meta-color: #666666;
@@ -21,24 +21,25 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.7;
     color: var(--text-color);
     background-color: var(--background-color);
-    font-size: 1rem;
+    font-size: 1.05rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 a {
     color: var(--link-color);
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
@@ -51,32 +52,34 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.3;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
     font-weight: 600;
     color: var(--text-color);
+    letter-spacing: -0.01em;
 }
 
 p, ul, ol {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.7rem;
 }
 
 img {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 pre, code {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
 }
 
 pre {
-    padding: 1rem;
+    padding: 1.2rem;
     overflow-x: auto;
     background-color: var(--light-bg);
     border-radius: 4px;
-    margin: 1.5rem 0;
+    margin: 1.7rem 0;
 }
 
 code {
@@ -87,14 +90,15 @@ code {
 
 blockquote {
     border-left: 4px solid var(--primary-color);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
+    padding-left: 1.2rem;
+    margin: 1.7rem 0;
     color: var(--meta-color);
+    font-style: italic;
 }
 
 /* Header and Navigation */
 #header {
-    padding: 2rem 0 1rem;
+    padding: 2.5rem 0 1.5rem;
     text-align: left;
 }
 
@@ -103,16 +107,17 @@ blockquote {
 }
 
 #header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--header-color);
     font-weight: 700;
     margin: 0;
+    letter-spacing: -0.02em;
 }
 
 nav {
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.8rem;
 }
 
 .navigation-menu {
@@ -124,7 +129,7 @@ nav {
 }
 
 .navigation-menu-item {
-    margin-right: 1.5rem;
+    margin-right: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
@@ -141,17 +146,18 @@ nav {
 
 /* Posts */
 .post {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .post-index {
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 2rem;
+    padding-bottom: 2.5rem;
 }
 
 .post-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
 }
 
 .post-title-link {
@@ -165,9 +171,9 @@ nav {
 }
 
 .meta {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--meta-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .post-date {
@@ -180,8 +186,8 @@ nav {
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: 2.2rem;
+    margin-bottom: 1.2rem;
 }
 
 .post-content ul,
@@ -195,7 +201,7 @@ nav {
 
 .post-content img {
     display: block;
-    margin: 2rem auto;
+    margin: 2.2rem auto;
     max-width: 100%;
     height: auto;
 }
@@ -204,17 +210,18 @@ nav {
 .pagination {
     display: flex;
     justify-content: space-between;
-    margin: 2rem 0 4rem;
+    margin: 2.5rem 0 4rem;
     border-top: 1px solid var(--border-color);
-    padding-top: 1.5rem;
+    padding-top: 1.8rem;
 }
 
 .pagination-item {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     background-color: var(--light-bg);
     border-radius: 4px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .pagination-item:hover {
@@ -232,11 +239,11 @@ nav {
 /* 404 Page */
 .not-found {
     text-align: center;
-    padding: 5rem 0;
+    padding: 6rem 0;
 }
 
 .not-found h1 {
-    font-size: 5rem;
+    font-size: 6rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
@@ -254,8 +261,8 @@ nav {
 .post-navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.8rem;
     border-top: 1px solid var(--border-color);
 }
 
@@ -267,18 +274,71 @@ nav {
     text-align: right;
 }
 
+/* Archive Page Styling */
+.archive-group {
+    margin-bottom: 2.5rem;
+}
+
+.archive-year {
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.7rem;
+}
+
+.archive-item {
+    margin-bottom: 0.9rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.archive-date {
+    min-width: 90px;
+    color: var(--meta-color);
+    font-size: 0.95rem;
+}
+
+.archive-title {
+    font-weight: 500;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #e1e1e1;
+        --background-color: #1a1a1a;
+        --border-color: #333333;
+        --light-bg: #252525;
+        --meta-color: #999999;
+    }
+    
+    img {
+        opacity: 0.9;
+    }
+    
+    .pagination span.pagination-item {
+        background-color: #252525;
+        color: #666666;
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     html {
         font-size: 15px;
     }
     
+    .container {
+        padding: 0 1.5rem;
+    }
+    
     .navigation-menu {
-        flex-direction: column;
+        flex-direction: row;
     }
     
     .navigation-menu-item {
-        margin-right: 0;
+        margin-right: 1.2rem;
         margin-bottom: 0.75rem;
     }
     
@@ -298,60 +358,15 @@ nav {
         font-size: 14px;
     }
     
+    .container {
+        padding: 0 1rem;
+    }
+    
     #header h1 {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
     }
     
     .post-title {
-        font-size: 1.5rem;
-    }
-}
-
-/* Archive Page Styling */
-.archive-group {
-    margin-bottom: 2rem;
-}
-
-.archive-year {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-}
-
-.archive-item {
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: baseline;
-}
-
-.archive-date {
-    min-width: 90px;
-    color: var(--meta-color);
-    font-size: 0.9rem;
-}
-
-.archive-title {
-    font-weight: 500;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --text-color: #e1e1e1;
-        --background-color: #1a1a1a;
-        --border-color: #333333;
-        --light-bg: #252525;
-        --meta-color: #999999;
-    }
-    
-    img {
-        opacity: 0.8;
-    }
-    
-    .pagination span.pagination-item {
-        background-color: #252525;
-        color: #666666;
+        font-size: 1.6rem;
     }
 }

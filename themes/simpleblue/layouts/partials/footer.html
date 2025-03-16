@@ -1,3 +1,13 @@
+<footer class="site-footer">
+    <div class="footer-content">
+        {{ if .Site.Params.copyright }}
+        <div class="copyright">{{ .Site.Params.copyright | markdownify }}</div>
+        {{ else }}
+        <div class="copyright">&copy; {{ now.Format "2006" }} {{ .Site.Title }}</div>
+        {{ end }}
+    </div>
+</footer>
+
 <link rel="stylesheet" href="/assets/css/highlight/echochamber.css">
 <script type="text/javascript" src="/assets/js/highlight/highlight.min.js"></script>
 <script type="text/javascript">

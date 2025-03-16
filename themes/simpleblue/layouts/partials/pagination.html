@@ -1,13 +1,13 @@
 {{ if or .Paginator.HasPrev .Paginator.HasNext }}
 <div class="pagination">
     {{ if .Paginator.HasPrev }}
-    <a class="pagination-item newer" href="{{ .Paginator.Prev.URL }}">Newer Posts</a>
+    <a class="pagination-item newer" href="{{ .Paginator.Prev.URL }}">← Newer Posts</a>
     {{ else }}
     <span class="pagination-item newer">No More Newer</span>
     {{ end }}
 
     {{ if .Paginator.HasNext }}
-    <a class="pagination-item older" href="{{ .Paginator.Next.URL }}">Older Posts</a>
+    <a class="pagination-item older" href="{{ .Paginator.Next.URL }}">Older Posts →</a>
     {{ else }}
     <span class="pagination-item older">No More Older</span>
     {{ end }}
