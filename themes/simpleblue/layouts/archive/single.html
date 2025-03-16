@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="archive">
+    <h1 class="page-title">归档</h1>
+    
+    {{ range (.Site.RegularPages.GroupByDate "2006").Reverse }}
+    <div class="archive-group">
+        <h2 class="archive-year">{{ .Key }}</h2>
+        {{ range .Pages }}
+        <div class="archive-item">
+            <span class="archive-date">{{ .Date.Format "01-02" }}</span>
+            <a class="archive-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}
