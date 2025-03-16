@@ -1,24 +1,95 @@
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode | default "en" }}">
 <head>
-    {{ partial "head.html" . }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+
+    <!-- KaTeX -->
+    {{ with site.Params.katex }}
+    {{ if eq . true }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ]
+            });
+        });
+    </script>
+    {{ end }}
+    {{ end }}
+
+    <!-- CSS -->
+    {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+
+    <!-- Twitter Card and Open Graph -->
+    {{ if .IsPage }}
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" />
+    {{ else }}
+    <meta property="og:type" content="website" />
+    {{ end }}
+    <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}" />
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:site_name" content="{{ site.Title }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}" />
+    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}" />
 </head>
 <body class="{{ if .IsHome }}home-template{{ else }}{{ if eq .Section "page" }}page-template{{ else }}post-template{{ end }}{{ end }}">
     <div class="container">
-        {{ partial "header.html" . }}
-        {{ partial "nav.html" . }}
+        <header id="header">
+            <a class="no-underline" id="header-title" href="{{ site.Home.RelPermalink }}">
+                <h1>{{ site.Title }}</h1>
+            </a>
+            {{ with .Site.Params.description }}
+            <p class="site-description">{{ . }}</p>
+            {{ end }}
+        </header>
+
+        <nav>
+            <ul class="navigation-menu">
+                {{ $currentPage := . }}
+                {{ range site.Menus.main }}
+                <li class="navigation-menu-item{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+
         <main>
             {{ block "main" . }}{{ end }}
         </main>
     </div>
 
-    {{ partial "footer.html" . }}
-    
-    {{ with site.Params.katex }}
-    {{ if eq . true }}
-    {{ partial "katex.html" $ }}
-    {{ end }}
-    {{ end }}
+    <link rel="stylesheet" href="/assets/css/highlight/echochamber.css">
+    <script type="text/javascript" src="/assets/js/highlight/highlight.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+        });
+    </script>
 
     {{ with site.Params.customJS }}
     <script src="{{ . | relURL }}"></script>

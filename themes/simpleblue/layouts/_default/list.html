@@ -18,7 +18,10 @@
         </header>
         
         <section class="post">
-            {{ .Content }}
+            {{ .Summary }}
+            {{ if .Truncated }}
+            <p><a href="{{ .RelPermalink }}">继续阅读 &raquo;</a></p>
+            {{ end }}
         </section>
     </article>
     {{ end }}
