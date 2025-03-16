@@ -2,7 +2,7 @@
 <div class="archive">
     <h1 class="page-title">归档</h1>
     
-    {{ range (.Site.RegularPages.GroupByDate "2006").Reverse }}
+    {{ range (site.RegularPages.GroupByDate "2006").Reverse }}
     <div class="archive-group">
         <h2 class="archive-year">{{ .Key }}</h2>
         {{ range .Pages }}
