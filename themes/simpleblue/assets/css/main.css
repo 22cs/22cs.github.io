@@ -1,4 +1,4 @@
-/* 重构的现代化主题样式 */
+/* 重构的现代化主题样式 - 无header版本 */
 :root {
     --primary-color: #1a88ff;
     --text-color: #333333;
@@ -48,6 +48,7 @@ body {
 
 main {
     flex: 1;
+    margin-top: 1rem;
 }
 
 a {
@@ -117,35 +118,11 @@ hr {
     margin: 2rem 0;
 }
 
-/* 头部和导航 */
-#header {
-    padding: 3rem 0 1.5rem;
-    text-align: left;
-}
-
-#header-title {
-    display: inline-block;
-}
-
-#header h1 {
-    font-size: 2.2rem;
-    color: var(--primary-color);
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: -0.02em;
-}
-
-.site-description {
-    color: var(--meta-color);
-    margin-top: 0.5rem;
-    font-size: 1.1rem;
-    max-width: 600px;
-}
-
+/* 导航 */
 nav {
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 2.5rem;
-    padding-bottom: 1rem;
+    padding: 1.5rem 0 1rem;
 }
 
 .navigation-menu {
@@ -431,12 +408,8 @@ nav {
         padding: 0 1.2rem;
     }
     
-    #header {
-        padding: 2rem 0 1.2rem;
-    }
-    
-    #header h1 {
-        font-size: 2rem;
+    nav {
+        padding: 1.2rem 0 0.8rem;
     }
     
     .post-title {
@@ -471,14 +444,6 @@ nav {
     
     .container {
         padding: 0 1rem;
-    }
-    
-    #header h1 {
-        font-size: 1.7rem;
-    }
-    
-    .site-description {
-        font-size: 1rem;
     }
     
     .navigation-menu {
