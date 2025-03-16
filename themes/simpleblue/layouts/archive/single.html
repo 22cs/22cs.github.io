@@ -2,15 +2,17 @@
 <div class="archive">
     <h1 class="page-title">归档</h1>
     
-    {{ range (site.RegularPages.GroupByDate "2006").Reverse }}
+    {{ range (where .Site.RegularPages "Section" "in" .Site.Params.mainSections).GroupByDate "2006" }}
     <div class="archive-group">
         <h2 class="archive-year">{{ .Key }}</h2>
-        {{ range .Pages }}
-        <div class="archive-item">
-            <span class="archive-date">{{ .Date.Format "01-02" }}</span>
-            <a class="archive-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <div class="archive-items">
+            {{ range .Pages }}
+            <div class="archive-item">
+                <span class="archive-date">{{ .Date.Format "01/02" }}</span>
+                <a class="archive-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </div>
+            {{ end }}
         </div>
-        {{ end }}
     </div>
     {{ end }}
 </div>

@@ -2,6 +2,26 @@
 <div class="posts-list">
     <h1 class="page-title">{{ .Title }}</h1>
     
+    {{ if eq .Section "categories" }}
+    <div class="taxonomy-list">
+        {{ range .Site.Taxonomies.categories }}
+        <a href="{{ .Page.RelPermalink }}" class="taxonomy-item">
+            {{ .Page.Title }} <span class="taxonomy-count">({{ .Count }})</span>
+        </a>
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    {{ if eq .Section "tags" }}
+    <div class="taxonomy-list">
+        {{ range .Site.Taxonomies.tags }}
+        <a href="{{ .Page.RelPermalink }}" class="taxonomy-item">
+            {{ .Page.Title }} <span class="taxonomy-count">({{ .Count }})</span>
+        </a>
+        {{ end }}
+    </div>
+    {{ end }}
+    
     {{ range (.Paginate .Pages).Pages }}
     <article class="post-index post">
         <header>
@@ -18,9 +38,13 @@
         </header>
         
         <section class="post">
-            {{ .Summary }}
-            {{ if .Truncated }}
-            <p><a href="{{ .RelPermalink }}">继续阅读 &raquo;</a></p>
+            {{ if .Summary }}
+                {{ .Summary }}
+                {{ if .Truncated }}
+                <p><a href="{{ .RelPermalink }}">继续阅读 &raquo;</a></p>
+                {{ end }}
+            {{ else }}
+                {{ .Content }}
             {{ end }}
         </section>
     </article>
