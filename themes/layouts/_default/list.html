@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="posts-list">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ range (.Paginate .Pages).Pages }}
+    <article class="post-item">
+        <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <div class="post-meta">
+            <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+            {{ with .Params.categories }}
+            <span class="post-categories">
+                {{ range . }}
+                <a href="{{ "categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+            </span>
+            {{ end }}
+        </div>
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+        <div class="read-more">
+            <a href="{{ .RelPermalink }}">阅读全文 &raquo;</a>
+        </div>
+    </article>
+    {{ end }}
+    
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,36 @@
+{{ define "main" }}
+<article class="post">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="post-meta">
+        <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+        {{ with .Params.categories }}
+        <span class="post-categories">
+            {{ range . }}
+            <a href="{{ "categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+            {{ end }}
+        </span>
+        {{ end }}
+        {{ with .Params.tags }}
+        <span class="post-tags">
+            {{ range . }}
+            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+            {{ end }}
+        </span>
+        {{ end }}
+    </div>
+    <div class="post-content">
+        {{ .Content }}
+    </div>
+
+    {{ if .Site.Params.showPostNavigation }}
+    <div class="post-navigation">
+        {{ with .PrevInSection }}
+        <a class="prev-post" href="{{ .RelPermalink }}">&laquo; {{ .Title }}</a>
+        {{ end }}
+        {{ with .NextInSection }}
+        <a class="next-post" href="{{ .RelPermalink }}">{{ .Title }} &raquo;</a>
+        {{ end }}
+    </div>
+    {{ end }}
+</article>
+{{ end }}
