@@ -3,7 +3,7 @@
     <header>
         <h1 class="post-title">{{ .Title }}</h1>
         <div class="meta">
-            <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 January 02" }}</time>
+            <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年01月02日" }}</time>
             {{ with .Params.categories }}
             &nbsp;•&nbsp;
             {{ range . }}
@@ -25,7 +25,6 @@
         {{ .Content }}
     </section>
 
-    {{ if .Site.Params.showPostNavigation }}
     <div class="post-navigation">
         {{ with .PrevInSection }}
         <a class="prev-post" href="{{ .RelPermalink }}">&laquo; {{ .Title }}</a>
@@ -34,6 +33,5 @@
         <a class="next-post" href="{{ .RelPermalink }}">{{ .Title }} &raquo;</a>
         {{ end }}
     </div>
-    {{ end }}
 </article>
 {{ end }}

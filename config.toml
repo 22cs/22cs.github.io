@@ -1,49 +1,59 @@
-baseURL = 'https://example.com/'
-languageCode = 'zh-cn'
-title = '我的博客'
-theme = 'simpleblue'
+baseURL = "http://localhost:1313/"
+languageCode = "zh-cn"
+title = "我的个人博客"
+theme = "simpleblue"
 
-# 分页设置 - 修正为新的语法
-[pagination]
+# 主要内容所在的部分
+[params]
+description = "个人知识整理与记录"
+mainSections = ["posts"]
+katex = true              # 启用KaTeX数学公式
+
+# 分页设置 (更新为新的配置项)
+[params.pagination]
 pagerSize = 10
 
-# 摘要长度
-summaryLength = 30
+# 避免RSS生成
+[outputs]
+home = ["HTML", "JSON"] # 添加JSON输出用于搜索功能
+section = ["HTML"]
+taxonomy = ["HTML"]
+term = ["HTML"]
 
-# 启用KaTeX渲染数学公式
-[params]
-katex = true
-# 设置主要文章类型 - 这很重要，归档功能依赖此设置
-mainSections = ["posts", "blog", "post"]
-# 是否显示上一篇/下一篇文章导航
-showPostNavigation = true
-# 站点描述
-description = "我的个人博客和日记"
-
-# 主菜单配置
+# 菜单配置
 [menu]
 [[menu.main]]
-identifier = "home"
 name = "首页"
 url = "/"
-weight = 10
+weight = 1
 [[menu.main]]
-identifier = "about"
-name = "关于"
-url = "/about/"
-weight = 50
+name = "归档"
+url = "/archives/"
+weight = 2
+[[menu.main]]
+name = "分类"
+url = "/categories/"
+weight = 3
+[[menu.main]]
+name = "标签"
+url = "/tags/"
+weight = 4
 
+# URL设置
 [permalinks]
 posts = "/:year/:month/:slug/"
 
-# 归档页面内容生成（必需）
-[outputs]
-home = ["HTML", "RSS"]
-page = ["HTML"]
-section = ["HTML", "RSS"]
-taxonomy = ["HTML", "RSS"]
+# 语法高亮
+[markup]
+[markup.highlight]
+codeFences = true
+guessSyntax = false
+lineNoStart = 1
+lineNos = true
+lineNumbersInTable = true
+noClasses = false
+style = "github"
+tabWidth = 4
 
-# 默认值，确保文章都有正确的参数
-[frontmatter]
-lastmod = ["lastmod", ":git", "date", "publishDate"]
-publishDate = ["publishDate", "date"]
+[markup.goldmark.renderer]
+unsafe = true # 允许在Markdown中使用原始HTML

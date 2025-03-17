@@ -4,7 +4,7 @@
     
     {{ if eq .Section "categories" }}
     <div class="taxonomy-list">
-        {{ range .Site.Taxonomies.categories }}
+        {{ range .Site.Taxonomies.categories.ByCount }}
         <a href="{{ .Page.RelPermalink }}" class="taxonomy-item">
             {{ .Page.Title }} <span class="taxonomy-count">({{ .Count }})</span>
         </a>
@@ -14,7 +14,7 @@
     
     {{ if eq .Section "tags" }}
     <div class="taxonomy-list">
-        {{ range .Site.Taxonomies.tags }}
+        {{ range .Site.Taxonomies.tags.ByCount }}
         <a href="{{ .Page.RelPermalink }}" class="taxonomy-item">
             {{ .Page.Title }} <span class="taxonomy-count">({{ .Count }})</span>
         </a>
@@ -25,19 +25,27 @@
     {{ range (.Paginate .Pages).Pages }}
     <article class="post-index post">
         <header>
-            <h2><a class="post-title-link" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <h2 class="post-title"><a class="post-title-link" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             <div class="meta">
-                <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 January 02" }}</time>
+                <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年01月02日" }}</time>
                 {{ with .Params.categories }}
                 &nbsp;•&nbsp;
                 {{ range . }}
                 <a href="{{ "categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
                 {{ end }}
                 {{ end }}
+                {{ with .Params.tags }}
+                &nbsp;•&nbsp;
+                <span class="post-tags">
+                    {{ range . }}
+                    <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+                    {{ end }}
+                </span>
+                {{ end }}
             </div>
         </header>
         
-        <section class="post">
+        <section class="post-content">
             {{ if .Summary }}
                 {{ .Summary }}
                 {{ if .Truncated }}

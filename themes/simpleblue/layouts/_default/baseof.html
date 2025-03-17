@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- Prevent indexing -->
+    <meta name="robots" content="noindex, nofollow">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
 
     <!-- KaTeX -->
     {{ with site.Params.katex }}
@@ -39,33 +36,41 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
 
-    <!-- Twitter Card and Open Graph -->
-    {{ if .IsPage }}
-    <meta property="og:type" content="article" />
-    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" />
-    {{ else }}
-    <meta property="og:type" content="website" />
-    {{ end }}
-    <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}" />
-    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}" />
-    <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:site_name" content="{{ site.Title }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}" />
-    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}" />
+    <!-- Search JS -->
+    {{ $search := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint }}
+    <script defer src="{{ $search.RelPermalink }}"></script>
 </head>
 <body class="{{ if .IsHome }}home-template{{ else }}{{ if eq .Section "page" }}page-template{{ else }}post-template{{ end }}{{ end }}">
     <div class="container">
+        <!-- Navigation -->
         <nav>
             <ul class="navigation-menu">
-                {{ $currentPage := . }}
-                {{ range site.Menus.main }}
-                <li class="navigation-menu-item{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }}">
-                    <a href="{{ .URL }}">{{ .Name }}</a>
+                <li class="navigation-menu-item">
+                    <a href="{{ .Site.Home.RelPermalink }}">首页</a>
                 </li>
-                {{ end }}
+                <li class="navigation-menu-item">
+                    <a href="{{ "archives/" | relURL }}">归档</a>
+                </li>
+                <li class="navigation-menu-item">
+                    <a href="{{ "tags/" | relURL }}">标签</a>
+                </li>
+                <li class="navigation-menu-item">
+                    <a href="{{ "categories/" | relURL }}">分类</a>
+                </li>
+                <li class="navigation-menu-item search-toggle">
+                    <a href="#search">搜索</a>
+                </li>
             </ul>
         </nav>
+
+        <!-- Search overlay -->
+        <div id="search-container" class="search-container">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="搜索文章..." autofocus>
+                <button id="search-close">×</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
 
         <main>
             {{ block "main" . }}{{ end }}
@@ -79,11 +84,29 @@
             if (typeof hljs !== 'undefined') {
                 hljs.highlightAll();
             }
+            
+            // Search toggle
+            const searchToggle = document.querySelector('.search-toggle a');
+            const searchContainer = document.getElementById('search-container');
+            const searchClose = document.getElementById('search-close');
+            const searchInput = document.getElementById('search-input');
+            
+            searchToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                searchContainer.classList.add('active');
+                searchInput.focus();
+            });
+            
+            searchClose.addEventListener('click', function() {
+                searchContainer.classList.remove('active');
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    searchContainer.classList.remove('active');
+                }
+            });
         });
     </script>
-
-    {{ with site.Params.customJS }}
-    <script src="{{ . | relURL }}"></script>
-    {{ end }}
 </body>
 </html>
