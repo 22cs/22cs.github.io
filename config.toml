@@ -39,14 +39,10 @@ name = "标签"
 url = "/tags/"
 weight = 4
 
-# 创建archives单页面
+# URL设置 - 确保只有一个 permalinks 部分
 [permalinks]
 posts = "/:year/:month/:slug/"
 archives = "/archives/"
-
-# URL设置
-[permalinks]
-posts = "/:year/:month/:slug/"
 
 # 语法高亮
 [markup]
