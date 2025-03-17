@@ -41,9 +41,9 @@ body {
 
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
 }
 
 main {
@@ -326,11 +326,11 @@ nav {
 
 /* 归档页面样式 */
 .archive {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .page-title {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     font-size: 2.2rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.8rem;
@@ -338,15 +338,16 @@ nav {
 }
 
 .archive-group {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .archive-year {
-    font-size: 1.7rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.8rem;
     color: var(--primary-color);
     display: flex;
     align-items: center;
+    padding-left: 0.5rem;
 }
 
 .archive-year::after {
@@ -354,35 +355,52 @@ nav {
     flex-grow: 1;
     height: 1px;
     background-color: var(--border-color);
-    margin-left: 1rem;
+    margin-left: 1.2rem;
 }
 
 .archive-items {
     display: grid;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .archive-item {
     display: flex;
     align-items: baseline;
-    padding: 0.75rem 1rem;
+    padding: 0.8rem 1.2rem;
     border-radius: var(--radius-medium);
     transition: var(--transition-default);
+    border-left: 3px solid transparent;
 }
 
 .archive-item:hover {
     background-color: var(--light-bg);
+    border-left-color: var(--primary-color);
+    transform: translateX(5px);
 }
 
 .archive-date {
-    min-width: 90px;
+    min-width: 120px;
     color: var(--meta-color);
     font-size: 0.95rem;
     font-family: var(--font-mono);
+    font-weight: 500;
 }
 
 .archive-title {
     font-weight: 500;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-color);
+    flex-grow: 1;
+}
+
+.archive-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--light-bg);
+    border-radius: var(--radius-medium);
+    color: var(--meta-color);
+    font-size: 1.1rem;
 }
 
 /* 分类和标签页面 */
@@ -424,11 +442,12 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10vh;
+    padding-top: 8vh;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .search-container.active {
@@ -438,72 +457,124 @@ nav {
 
 .search-box {
     width: 80%;
-    max-width: 600px;
+    max-width: 800px;
     position: relative;
     margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-medium);
+    background-color: white;
 }
 
 #search-input {
     width: 100%;
-    padding: 1rem 3rem 1rem 1.5rem;
-    font-size: 1.2rem;
+    padding: 1.2rem 3.5rem 1.2rem 1.5rem;
+    font-size: 1.3rem;
     border: none;
-    border-bottom: 2px solid var(--primary-color);
-    background-color: transparent;
+    border-radius: var(--radius-medium);
+    background-color: white;
     outline: none;
+    transition: all 0.3s ease;
+}
+
+#search-input:focus {
+    box-shadow: 0 0 0 2px var(--primary-color);
 }
 
 #search-close {
     position: absolute;
-    right: 0;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--meta-color);
     cursor: pointer;
     padding: 0.5rem;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+#search-close:hover {
+    color: var(--primary-color);
 }
 
 .search-results {
     width: 80%;
-    max-width: 700px;
-    max-height: 60vh;
+    max-width: 800px;
+    max-height: 70vh;
     overflow-y: auto;
-    padding: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: var(--radius-medium);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.search-message {
+    padding: 2rem;
+    text-align: center;
+    color: var(--meta-color);
+    font-size: 1.1rem;
+}
+
+.search-summary {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--meta-color);
+    font-size: 0.95rem;
 }
 
 .search-result-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
     border-bottom: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+.search-result-item:hover {
+    transform: translateY(-2px);
 }
 
 .search-result-item:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .search-result-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    margin-top: 0;
+}
+
+.search-result-title a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.search-result-title a:hover {
+    color: var(--primary-color);
 }
 
 .search-result-meta {
     font-size: 0.9rem;
     color: var(--meta-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .search-result-snippet {
     font-size: 1rem;
     color: var(--text-color);
+    line-height: 1.6;
 }
 
 .search-highlight {
     background-color: rgba(26, 136, 255, 0.15);
     padding: 0.1rem 0.2rem;
     border-radius: 3px;
+    font-weight: 500;
 }
 
 /* 响应式调整 */
