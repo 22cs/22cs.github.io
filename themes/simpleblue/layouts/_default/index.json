@@ -1,0 +1,15 @@
+{{- $index := slice -}}
+{{- range where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+    {{- $data := dict "title" .Title "date" (.Date.Format "2006-01-02") "permalink" .Permalink "content" (.Plain | htmlUnescape) -}}
+    
+    {{- with .Params.tags -}}
+        {{- $data = merge $data (dict "tags" .) -}}
+    {{- end -}}
+    
+    {{- with .Params.categories -}}
+        {{- $data = merge $data (dict "categories" .) -}}
+    {{- end -}}
+    
+    {{- $index = $index | append $data -}}
+{{- end -}}
+{{- $index | jsonify -}}
