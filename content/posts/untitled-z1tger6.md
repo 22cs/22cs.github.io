@@ -143,7 +143,7 @@ These broader skills - what Addy Osmani calls “durable engineering skills” i
 Yet this emphasis on broader skills has sparked debate in our community. For some, it sounds suspiciously like management repackaged. And they’re not entirely wrong - a recent [CIO article](https://www.cio.com/article/3509174/ai-coding-assistants-wave-goodbye-to-junior-developers.html) confirms that development teams are already being restructured to focus on oversight rather than creation. The article envisions future teams consisting of a product manager, a UX designer, and a software architect who primarily uses AI to generate prototypes. These architects, or senior developers, must “understand the content… who the customer is and what we’re trying to achieve” - classic management responsibilities repackaged as technical work.  
 然而，这种对更广泛技能的强调在我们的社区引发了争论。对一些人来说，这听起来像是重新包装的管理。他们并没有完全错——最近的一篇 [CIO 文章](https://www.cio.com/article/3509174/ai-coding-assistants-wave-goodbye-to-junior-developers.html)证实，开发团队已经在进行重组，以专注于监督而不是创造。文章设想未来的团队将由一名产品经理、一名 UX 设计师和一名主要使用 AI 生成原型的软件架构师组成。这些架构师或高级开发人员必须“了解内容……客户是谁以及我们想要实现什么”——经典的管理职责被重新包装为技术工作。
 
-![Management in a Cloak](/images/addy-osmani-durable-engineering-skills.png) Management in a Cloak  
+​ Management in a Cloak  
 披着斗篷的管理
 
  This evolution raises fundamental questions about our identity as engineers: As the traditional career ladder transforms, how will the next generation of software engineers develop their skills? How do we preserve the deep technical understanding and craftsmanship that shaped our profession while embracing these new tools? And perhaps most unsettling - as AI capabilities advance exponentially, will our role as craftspeople become as obsolete as the manual weaver’s did during the Industrial Revolution?  
